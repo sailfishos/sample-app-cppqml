@@ -33,7 +33,7 @@
 DemoModel::DemoModel(QObject *parent) :
     QAbstractListModel(parent)
 {
-    backing << "cat" << "dog" << "unicorn" << "quokka" << "pitahui" << "beetle";
+    backing << "sea cow" << "platypus" << "axolotl" << "quokka" << "pitahui" << "jerboa";
 }
 
 QVariant DemoModel::data(const QModelIndex &index, int role) const {
