@@ -1,6 +1,6 @@
 /*
-  Copyright (C) 2013 Jolla Ltd.
-  Contact: Thomas Perl <thomas.perl@jollamobile.com>
+  Copyright (C) 2015 Jolla Ltd.
+  Contact: Jussi Pakkanen <jussi.pakkanen@jollamobile.com>
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -30,42 +30,26 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import com.example 1.0
 
 Page {
     id: page
 
-    // To enable PullDownMenu, place our content in a SilicaFlickable
-    SilicaFlickable {
+    SilicaListView {
         anchors.fill: parent
 
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Show Page 2")
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
-            }
+        model: DemoModel {
+            id: dmodel
         }
 
-        // Tell SilicaFlickable the height of its content.
-        contentHeight: column.height
-
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
-        Column {
-            id: column
-
-            width: page.width
-            spacing: Theme.paddingLarge
-            PageHeader {
-                title: qsTr("UI Template")
-            }
+        delegate: BackgroundItem {
             Label {
                 x: Theme.paddingLarge
-                text: qsTr("Hello Sailors")
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
+                text: dmodel.getText(index, 0)
+                anchors.verticalCenter: parent.verticalCenter
+                //color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
+            onClicked: dmodel.activate(index)
         }
     }
 }

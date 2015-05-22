@@ -33,6 +33,8 @@
 #endif
 
 #include <sailfishapp.h>
+#include <QQmlEngine>
+#include <QScopedPointer>
 #include "demomodel.h"
 
 int main(int argc, char *argv[])
@@ -45,11 +47,11 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
-    QGuiApplication *app = SailfishApp::application(argc, argv);
-    QQuickView *v = SailfishApp::createView();
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QScopedPointer<QQuickView> v(SailfishApp::createView());
+    qmlRegisterType<DemoModel>("com.example", 1, 0, "DemoModel");
+    v->setSource(SailfishApp::pathTo("qml/cppqml.qml"));
     v->show();
-    DemoModel *x = new DemoModel();
-    delete x;
     return app->exec();
 }
 
