@@ -33,7 +33,7 @@
 #endif
 
 #include <sailfishapp.h>
-
+#include "demomodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -45,7 +45,11 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
-
-    return SailfishApp::main(argc, argv);
+    QGuiApplication *app = SailfishApp::application(argc, argv);
+    QQuickView *v = SailfishApp::createView();
+    v->show();
+    DemoModel *x = new DemoModel();
+    delete x;
+    return app->exec();
 }
 

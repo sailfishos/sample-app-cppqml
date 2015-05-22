@@ -14,7 +14,8 @@ TARGET = cppqml
 
 CONFIG += sailfishapp
 
-SOURCES += src/cppqml.cpp
+SOURCES += src/cppqml.cpp \
+    src/demomodel.cpp
 
 OTHER_FILES += qml/cppqml.qml \
     qml/pages/FirstPage.qml \
@@ -22,3 +23,6 @@ OTHER_FILES += qml/cppqml.qml \
     rpm/cppqml.spec \
     rpm/cppqml.yaml \
     cppqml.desktop
+
+HEADERS += \
+    src/demomodel.h
