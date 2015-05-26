@@ -39,17 +39,18 @@
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/template.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
+    // Set up qml engine.
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> v(SailfishApp::createView());
+
+    // If you wish to publish your app on the Jolla harbour, it is recommended
+    // that you prefix your internal namespaces with "harbour.".
+    //
+    // For details see:
+    // https://harbour.jolla.com/faq#1.5.0
     qmlRegisterType<DemoModel>("com.example", 1, 0, "DemoModel");
+
+    // Start the application.
     v->setSource(SailfishApp::pathTo("qml/cppqml.qml"));
     v->show();
     return app->exec();

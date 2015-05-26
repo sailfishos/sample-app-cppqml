@@ -47,16 +47,18 @@ QVariant DemoModel::data(const QModelIndex &index, int role) const {
 }
 
 void DemoModel::activate(const int i) {
-    QModelIndex index;
+    QModelIndex index; // Indicates that this model is the "top level" one.
     if(i < 0 || i >= backing.size()) {
         return;
     }
     QString value = backing[i];
 
+    // Remove the value from the old location.
     beginRemoveRows(index, i, i);
     backing.erase(backing.begin() + i);
     endRemoveRows();
 
+    // Add it to the top.
     beginInsertRows(index, 0, 0);
     backing.insert(0, value);
     endInsertRows();

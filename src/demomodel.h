@@ -45,10 +45,6 @@ public:
     Q_INVOKABLE void activate(const int i);
     Q_INVOKABLE QString getText(const int i) const;
 
-signals:
-
-public slots:
-
 private:
     QVector<QString> backing;
 };
