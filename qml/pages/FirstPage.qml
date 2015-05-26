@@ -35,27 +35,23 @@ import com.example 1.0
 Page {
     id: page
 
-    PageHeader {
-        id: header
-        title: "Unusual animals"
-    }
-
     SilicaListView {
 
-        anchors.top: header.bottom
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.fill: parent
 
         model: DemoModel {
             id: dmodel
         }
 
+        header: PageHeader {
+            id: header
+            title: "Unusual animals"
+        }
+
         delegate: BackgroundItem {
             Label {
-                x: Theme.paddingLarge
+                x: Theme.horizontalPageMargin
                 text: name
-                anchors.verticalCenter: parent.verticalCenter
             }
             onClicked: dmodel.activate(index)
         }
