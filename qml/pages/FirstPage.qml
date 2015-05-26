@@ -54,9 +54,8 @@ Page {
         delegate: BackgroundItem {
             Label {
                 x: Theme.paddingLarge
-                text: dmodel.getText(index, 0)
+                text: name
                 anchors.verticalCenter: parent.verticalCenter
-                //color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
             onClicked: dmodel.activate(index)
         }

@@ -36,18 +36,26 @@ DemoModel::DemoModel(QObject *parent) :
     backing << "sea cow" << "platypus" << "axolotl" << "quokka" << "pitahui" << "jerboa";
 }
 
+QHash<int, QByteArray> DemoModel::roleNames() const {
+    QHash<int, QByteArray> roles;
+    roles[NameRole] = "name";
+    return roles;
+}
+
+
 QVariant DemoModel::data(const QModelIndex &index, int role) const {
     if(!index.isValid()) {
         return QVariant();
     }
-    if(role == Qt::DisplayRole) {
+    if(role == NameRole) {
         return QVariant(backing[index.row()]);
     }
     return QVariant();
 }
 
 void DemoModel::activate(const int i) {
-    QModelIndex index; // Indicates that this model is the "top level" one.
+    // An empty index indicates we are altering the "top level" model.
+    QModelIndex index;
     if(i < 0 || i >= backing.size()) {
         return;
     }
@@ -62,8 +70,4 @@ void DemoModel::activate(const int i) {
     beginInsertRows(index, 0, 0);
     backing.insert(0, value);
     endInsertRows();
-}
-
-QString DemoModel::getText(const int i) const {
-    return i>= 0 && i < backing.size() ? backing[i] : QString();
 }
