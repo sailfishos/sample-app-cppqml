@@ -43,11 +43,8 @@ int main(int argc, char *argv[])
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> v(SailfishApp::createView());
 
-    // If you wish to publish your app on the Jolla harbour, it is recommended
-    // that you prefix your internal namespaces with "harbour.".
-    //
-    // For details see:
-    // https://harbour.jolla.com/faq#1.5.0
+    // If you wish to publish your app on the Jolla harbour, follow
+    // https://harbour.jolla.com/faq#5.3.0 about naming own QML modules.
     qmlRegisterType<DemoModel>("com.example", 1, 0, "DemoModel");
 
     // Start the application.
