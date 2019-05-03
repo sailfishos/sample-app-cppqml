@@ -14,9 +14,7 @@ Sources:
 Description: |
   Short description of my SailfishOS Application
 Configure: none
-# The qtc5 builder inserts macros to allow QtCreator to have fine
-# control over qmake/make execution
-Builder: qtc5
+Builder: qmake5
 
 # This section specifies build dependencies that are resolved using pkgconfig.
 # This is the preferred way of specifying build dependencies for your package.
