@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2015 Jolla Ltd.
+  Copyright (c) 2015 - 2022 Jolla Ltd.
   Contact: Jussi Pakkanen <jussi.pakkanen@jollamobile.com>
   All rights reserved.
 
