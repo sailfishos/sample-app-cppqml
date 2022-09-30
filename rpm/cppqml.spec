@@ -20,7 +20,7 @@ Short description of my SailfishOS Application
 
 %build
 %qmake5 
-make %{?_smp_mflags}
+%make_build
 
 %install
 rm -rf %{buildroot}
