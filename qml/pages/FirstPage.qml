@@ -1,6 +1,5 @@
 /*
-  Copyright (C) 2015 Jolla Ltd.
-  Contact: Jussi Pakkanen <jussi.pakkanen@jollamobile.com>
+  Copyright (c) 2015 - 2022 Jolla Ltd.
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
