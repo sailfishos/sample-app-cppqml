@@ -2,7 +2,7 @@ Name:       cppqml
 Summary:    C++ and QML sample application
 Version:    1.0
 Release:    1
-License:    LICENSE
+License:    BSD
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -32,6 +32,7 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
+%license LICENSE.BSD
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
