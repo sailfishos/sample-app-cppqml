@@ -2,7 +2,6 @@ Name:       cppqml
 Summary:    C++ and QML sample application
 Version:    1.0
 Release:    1
-Group:      Qt/Qt
 License:    LICENSE
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
