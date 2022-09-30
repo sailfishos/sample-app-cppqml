@@ -16,7 +16,7 @@ BuildRequires:  desktop-file-utils
 Short description of my SailfishOS Application
 
 %prep
-%setup -q -n %{name}-%{version}
+%autosetup -n %{name}-%{version}
 
 %build
 %qmake5 
