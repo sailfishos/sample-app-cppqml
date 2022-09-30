@@ -3,7 +3,7 @@ Summary:    C++ and QML sample application
 Version:    1.0
 Release:    1
 License:    BSD
-URL:        http://example.org/
+URL:        https://github.com/sailfishos/cppqml-sample
 Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
