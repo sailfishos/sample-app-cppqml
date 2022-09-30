@@ -1,6 +1,5 @@
 /*
   Copyright (c) 2013 - 2022 Jolla Ltd.
-  Contact: Thomas Perl <thomas.perl@jollamobile.com>
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
