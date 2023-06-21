@@ -42,10 +42,10 @@ public:
 
     explicit DemoModel(QObject *parent = 0);
 
-    virtual int rowCount(const QModelIndex&) const { return backing.size(); }
-    virtual QVariant data(const QModelIndex &index, int role) const;
+    int rowCount(const QModelIndex&) const override { return backing.size(); }
+    QVariant data(const QModelIndex &index, int role) const override;
 
-    QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void activate(const int i);
 
