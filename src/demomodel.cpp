@@ -29,31 +29,34 @@
 
 #include "demomodel.h"
 
-DemoModel::DemoModel(QObject *parent) :
-    QAbstractListModel(parent)
+DemoModel::DemoModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
     backing << "sea cow" << "platypus" << "axolotl" << "quokka" << "pitahui" << "jerboa";
 }
 
-QHash<int, QByteArray> DemoModel::roleNames() const {
+QHash<int, QByteArray> DemoModel::roleNames() const
+{
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     return roles;
 }
 
 
-QVariant DemoModel::data(const QModelIndex &index, int role) const {
-    if(!index.isValid()) {
+QVariant DemoModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid()) {
         return QVariant();
     }
-    if(role == NameRole) {
+    if (role == NameRole) {
         return QVariant(backing[index.row()]);
     }
     return QVariant();
 }
 
-void DemoModel::activate(const int i) {
-    if(i < 0 || i >= backing.size()) {
+void DemoModel::activate(const int i)
+{
+    if (i < 0 || i >= backing.size()) {
         return;
     }
     QString value = backing[i];
